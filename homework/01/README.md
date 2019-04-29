@@ -1,4 +1,4 @@
-№устанавливаю утилиту для скачавани
+#устанавливаю утилиту для скачавани
 yum install -y wget
 #скачиваю ядро из ветки stable
 wget cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.0.9.tar.xz
@@ -16,4 +16,5 @@ make menuconfig
 yum install elfutils-libelf-devel
 #начинаю процесс сборки
 make && make modules
+
 
