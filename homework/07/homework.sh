@@ -32,7 +32,7 @@ sed -i 's/#SOCKET/SOCKET/' /etc/sysconfig/spawn-fcgi
 sed -i 's/#OPTIONS/OPTIONS/' /etc/sysconfig/spawn-fcgi
 
 # скоприуем подготовленный файл
-cp /vagrant/task2/spawn-fcgi.service etc/systemd/system/spawn-fcgi.service
+cp /vagrant/task2/spawn-fcgi.service /etc/systemd/system/spawn-fcgi.service
 
 # запускаем и проверяем файл
 systemctl start spawn-fcgi
@@ -45,7 +45,7 @@ systemctl status spawn-fcgi
 # ВЗЯЛ ИЗ ПОДСКАЗОК
 # создать unit-файл по шаблону из /etc/systemd/system/httpd.service. ОБЯЗАТЕЛЬНО сделать
 # его в виде httpd@.service, иначе не взлетит
-cp usr/lib/systemd/system/httpd.service /etc/systemd/system/httpd@.service
+cp /usr/lib/systemd/system/httpd.service /etc/systemd/system/httpd@.service
 # добавляем для нацеливания на разные конфиги будем использовать опцию %I
 sed -i 's/EnvironmentFile=\/etc\/sysconfig\/httpd/EnvironmentFile=\/etc\/sysconfig\/httpd-config-%I/' /etc/systemd/system/httpd@.service
 
@@ -63,7 +63,7 @@ sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/second.conf
 
 # добавляем строку после строки ServerRoot в каждом файле
 sed -i '/ServerRoot "\/etc\/httpd"/a PidFile \/var\/run\/httpd-firs.pid' /etc/httpd/conf/first.conf
-sed -i '/ServerRoot "\/etc\/httpd"/a PidFile \/var\/run\/httpd-second.pid' /etc/httpd/conf/secondt.conf
+sed -i '/ServerRoot "\/etc\/httpd"/a PidFile \/var\/run\/httpd-second.pid' /etc/httpd/conf/second.conf
 
 # переносим оригинал файла httpd
 mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.orig
