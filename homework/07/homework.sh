@@ -54,8 +54,8 @@ sed -i 's/EnvironmentFile=\/etc\/sysconfig\/httpd/EnvironmentFile=\/etc\/sysconf
 # Соответственно в директории с конфигами httpd должны лежать два
 # конфига, в нашем случае это будут first.conf и second.conf
 # создаем два конфигурациооных файла в /etc/httpd/conf
-сat /etc/httpd/conf/httpd.conf > /etc/httpd/conf/first.conf
-cat /etc/httpd/conf/httpd.conf > /etc/httpd/conf/second.conf
+cp /etc/httpd/conf/httpd.conf > /etc/httpd/conf/first.conf
+cp /etc/httpd/conf/httpd.conf > /etc/httpd/conf/second.conf
 
 # изменяем строки в каждом файле
 sed -i 's/Listen 80/Listen 8080/' /etc/httpd/conf/first.conf
