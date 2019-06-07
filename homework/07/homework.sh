@@ -82,7 +82,7 @@ mv /etc/sysconfig/httpd /etc/sysconfig/httpd.orig
 systemctl disable httpd
 systemctl daemon-reload
 
-# запускаем первый сервис и проверяем статус
+# запускаем сервисы и проверяем статус
 systemctl start httpd@first
 sleep 3
 
