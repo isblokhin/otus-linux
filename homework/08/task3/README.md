@@ -1,4 +1,5 @@
-#!/bin/bash
+3. Добавить модуль в initrd
+
 
 # Создаем папку для нашего моду и копируем скрипты в эту папку 
 mkdir /usr/lib/dracut/modules.d/01test
