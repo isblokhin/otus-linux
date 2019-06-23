@@ -13,7 +13,8 @@ https://habr.com/ru/post/405519/
 - admin
 - fakeadmin
 ```
-Проверка текущего дня проходит с помощью скрипта ### [script_pam](https://github.com/isblokhin/otus-linux/blob/master/homework/11/script_pam.sh)
-Заменяем файл /etc/sshd на новый, в котором добавлен модуль ### [sshd](https://github.com/isblokhin/otus-linux/blob/master/homework/11/sshd)
+Проверка текущего дня проходит с помощью скрипта [script_pam](https://github.com/isblokhin/otus-linux/blob/master/homework/11/script_pam.sh)
+
+Заменяем файл /etc/sshd на новый, в котором добавлен модуль [sshd](https://github.com/isblokhin/otus-linux/blob/master/homework/11/sshd)
 
 
