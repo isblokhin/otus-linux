@@ -55,8 +55,9 @@ Vagrant.configure("2") do |config|
             end
   
         box.vm.provision "shell", inline: <<-SHELL
-            mkdir -p ~root/.ssh cp ~vagrant/.ssh/auth* ~root/.ssh for pkg in epel-release pam_script; do 
-	    yum install -y $pkg; done yum install -y pam_script 
+            mkdir -p ~root/.ssh cp ~vagrant/.ssh/auth* ~root/.ssh 
+	    for pkg in epel-release pam_script; do yum install -y $pkg; done 
+	    yum install -y pam_script 
 	    useradd adminuser1
             useradd fakeuser1
             echo qwerty12 | passwd adminuser1 --stdin
