@@ -65,7 +65,7 @@ Vagrant.configure("2") do |config|
             groupadd admin
             groupadd fakeadmin
             usermod -aG admin adminuser1
-            usermod -aG fakeadmin fakeadmin1
+            usermod -aG fakeadmin fakeuser1
             cp /vagrant/sshd /etc/pam.d/
             sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
             cp /vagrant/script_pam.sh /usr/local/bin/script_pam.sh
