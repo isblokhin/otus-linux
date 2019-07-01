@@ -1,13 +1,5 @@
 #!/bin/bash
 
-
-# проверяем состоит ли юзер в группе админов
-if [[ `grep "admin.*$(echo $PAM_USER)" /etc/group` ]]
-then
-    exit 0
-fi
-
-
 # получаем текущую дату, удаляем тире и пробелы между данными, чтобы сделать 
 # запрос на сайт и записываем в переменную
 
@@ -17,9 +9,16 @@ echo $pam_date
 pam_result=`curl https://isdayoff.ru/$pam_date`
 echo $pam_result
 
-if [[ $pam_result==1 ]];
+# сравниваем значение, если не выходной и не праздник, то возвращаем 0
+if [[ $pam_result -nq 1 ]];
 then  
-    exit 1
-else
     exit 0
+else
+    # если выходной проверяем состоит ли юзер в группе админов
+if [[ `grep "admin.*$(echo $PAM_USER)" /etc/group` ]]
+then
+    exit 0
+else
+    exit 1
+fi
 fi
