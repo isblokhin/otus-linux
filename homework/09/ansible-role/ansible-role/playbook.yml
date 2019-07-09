@@ -1,10 +1,7 @@
 ---
   - name: Nginx install
-    hosts: web2
+    hosts: webservers
     gather_facts: true
     become: true
-  
     roles:
-    - nginx-role
-
-...
+      - nginx

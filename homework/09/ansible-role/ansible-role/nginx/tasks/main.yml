@@ -1,25 +1,20 @@
 ---
-
+# tasks file for /home/vagrant/ansible-role/nginx
 - name: install epel-release
   yum:
     name: epel-release
     state: present
-  tags:
-    - install-epel-release
-
 - name: install inginx
   yum:
     name: nginx
     state: latest
   notify:
     - restart nginx
-    - enabled nginx
-  tags:
-    - nginx-package
+  tags: nginx install 
 
 - name: copy config for nginx
   template:
-    src: template/nginx.conf.j2
+    src: nginx.conf.j2
     dest: /etc/nginx/nginx.conf
     owner: root
     group: root
@@ -29,3 +24,15 @@
   tags:
     - nginx-copy-config
 
+- name: install packages
+  yum:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - vim
+    - nano
+    - mc
+    - telnet
+    - lsof
+  tags: 
+    - web2-install

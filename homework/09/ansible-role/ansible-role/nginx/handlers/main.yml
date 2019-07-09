@@ -1,6 +1,5 @@
 ---
-# handlers file for nginx-role
-
+# handlers file for /home/vagrant/ansible-role/nginx
 - name: restart nginx
   systemd:
     name: nginx
@@ -14,4 +13,3 @@
     name: nginx
     enabled: yes
 
-...
