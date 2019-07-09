@@ -29,7 +29,7 @@
     - name: copy config for nginx
       template:
         src: /home/vagrant/ansible/template/nginx.conf.j2
-        dest: /tmp/nginx.conf
+        dest: /etc/nginx/nginx.conf
         owner: root
         group: root
         mode: 0644
