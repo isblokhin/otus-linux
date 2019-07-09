@@ -1,0 +1,10 @@
+---
+  - name: Nginx install
+    hosts: web2
+    gather_facts: true
+    become: true
+  
+    roles:
+    - nginx-role
+
+...

@@ -1,0 +1,31 @@
+---
+
+- name: install epel-release
+  yum:
+    name: epel-release
+    state: present
+  tags:
+    - install-epel-release
+
+- name: install inginx
+  yum:
+    name: nginx
+    state: latest
+  notify:
+    - restart nginx
+    - enabled nginx
+  tags:
+    - nginx-package
+
+- name: copy config for nginx
+  template:
+    src: template/nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - reload nginx
+  tags:
+    - nginx-copy-config
+
