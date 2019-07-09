@@ -1,0 +1,77 @@
+---
+  - name: Nginx install
+    hosts: all
+    gather_facts: true
+    become: true
+     
+    tasks:
+    - name: install epel-release
+      yum:
+        name: epel-release
+        state: present
+    - name: install inginx
+      yum:
+        name: nginx
+        state: latest
+      notify:
+      - restart nginx
+      - enabled nginx
+      tags:
+      - nginx-package
+
+  - name: install vars for nginx
+    hosts: web
+    become: true
+    vars:
+      nginx_listen_port: 8080
+
+    tasks:
+    - name: copy config for nginx
+      template:
+        src: /home/vagrant/ansible/template/nginx.conf.j2
+        dest: /tmp/nginx.conf
+        owner: root
+        group: root
+        mode: 0644
+      notify:
+      - reload nginx
+      tags:
+      - nginx-copy-config
+
+
+    handlers:
+    - name: restart nginx
+      systemd:
+        name: nginx
+        state: restarted
+    - name: reload nginx
+      systemd:
+        name: nginx
+        state: reloaded
+    - name: enabled nginx
+      systemd:
+        name: nginx
+        enabled: yes
+
+
+  - name: install app
+    hosts: web2
+    gather_facts: false
+    become: true
+
+    tasks:
+    - name: install packages
+      yum:
+        name: "{{ item }}"
+        state: latest
+      loop:
+      - vim
+      - nano
+      - mc
+      - telnet
+
+      tags: web2-install
+
+
+...
+
