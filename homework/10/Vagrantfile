@@ -41,7 +41,7 @@ Vagrant.configure("2") do |config|
           yum install docker-ce docker-ce-cli containerd.io -y
           systemctl enable docker
           systemctl start docker
-          
+          docker build -f /vagrant/Dockerfile
 	SHELL
    
 end
