@@ -45,4 +45,4 @@ $ docker push YOUR_DOCKERHUB_NAME/YOURIMAGE
 
 данный образ, описанный и установленный выше лежит [тут](https://cloud.docker.com/repository/docker/isblokhin/nginx)
 
-Далее с помощью [Dockerfile](https://github.com/isblokhin/otus-linux/blob/master/homework/10/Dockerfile) был развернут ещё один контейнер.
+Далее с помощью [Dockerfile](https://github.com/isblokhin/otus-linux/blob/master/homework/10/Dockerfile) был развернут ещё один контейнер, в коротом меняется index.html.
