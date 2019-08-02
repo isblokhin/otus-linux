@@ -42,6 +42,7 @@ Vagrant.configure("2") do |config|
           systemctl enable docker
           systemctl start docker
           docker build https://raw.githubusercontent.com/isblokhin/otus-linux/master/homework/10/Dockerfile
+	  docker run -d -p 8080:80 --name otus-nginx nginx:1.17-alpine
 	SHELL
    
 end
