@@ -26,7 +26,7 @@ MACHINES = {
                    {ip: '192.168.0.2', adapter: 2, netmask: "255.255.255.128", virtualbox__intnet: "central-net"},
 		   {adapter: 3, auto_config: false, virtualbox__intnet: true},
                    {adapter: 4, auto_config: false, virtualbox__intnet: true},
-                ]	  ]
+        	  ]
   },
   :office1Router => {
     :box_name => "centos/7",
