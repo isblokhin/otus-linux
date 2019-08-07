@@ -1,0 +1,26 @@
+---
+# tasks file for server
+- name: install epel-release
+  yum:
+    name: epel-release
+    state: present
+
+- name: install ipa-server
+  yum:
+    name: ipa-server
+    state: present
+  notify:
+    - enabled ipa-server
+    - restart ipa-server
+  tags: ipa-server install 
+
+- name: install ipa-server dns 
+  yum:
+    name: ipa-server-dns
+    state: present
+  notify:
+    - enabled ipa-server-dns
+    - restart ipa-server-dns
+  tags: ipa-server-dns install
+   	
+
