@@ -1,0 +1,8 @@
+[ipa-server]
+server
+[ipa-client]
+client
+
+[web]
+server
+client

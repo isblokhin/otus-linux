@@ -1,0 +1,10 @@
+---
+# handlers file for client
+- name: restart ipa-server
+  systemd:
+    name: ipa-client
+    state: restarted
+- name: enabled ipa-client
+  systemd:
+    name: ipa-client
+    enabled: yes
