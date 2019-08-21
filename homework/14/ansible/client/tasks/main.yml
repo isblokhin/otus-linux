@@ -14,3 +14,34 @@
     - enabled ipa-client
   tags: ipa-client install
 
+- name: hostaname configuring
+  hostname:
+    name: "{{ inventory_hostname }}.{{ domain }}" # required. Name of the host
+    
+- name: resolv.conf configuring
+  lineinfile:
+    path: /etc/resolv.conf
+    line: "nameserver 192.168.11.151"
+
+- name: hosts file configuring
+  blockinfile:
+    path: /etc/hosts
+    marker: "<!-- {mark} ANSIBLE MANAGED BLOCK -->"
+    block: |
+      {{ item.ip }} {{ item.name }}
+  with_items:    
+  - { name: "{{ ipa_server_name }}.{{ domain }}", ip: "{{ ipa_server_ip }}" }
+      
+- name: Run ipa-client-install
+  shell: > 
+    ipa-client-install
+    --force-join
+    --force-ntpd
+    --domain {{ domain }}
+    --principal {{ ipa_admin }}@{{ ipa_realm }} 
+    --password {{ ipa_pass }}
+    --server {{ ipa_server_name }}.{{ domain }}
+    --mkhomedir
+    --realm {{ ipa_realm }} 
+    -U
+  tags: install parametrs

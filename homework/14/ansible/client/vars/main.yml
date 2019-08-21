@@ -1,2 +1,9 @@
 ---
 # vars file for client
+domain: "otus.local"
+ipa_admin: "admin"
+ipa_pass: "qwerty"
+ipa_server_name: "rc"
+ipa_server_ip: "192.168.11.151"
+ipa_realm: "OTUS.LOCAL"
+

@@ -20,8 +20,8 @@
   shell: > 
     ipa-server-install
     --hostname=rc.otus.local
-    --domain=otus.local
-    --realm=OTUS.LOCAL
+#    --domain=otus.local
+#    --realm=
 #    --ds-password "{{ ds-password }}"
 #    --admin-password "{{ admin-password }}"
 #    --forwarder "{{ forwarder }}"

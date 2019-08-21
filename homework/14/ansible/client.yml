@@ -1,6 +1,6 @@
 ---
   - name: freeipa install
-    hosts: client
+    hosts: ipa-client
     gather_facts: true
     become: true
     roles:
