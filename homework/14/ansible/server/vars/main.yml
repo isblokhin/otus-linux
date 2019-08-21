@@ -1,0 +1,8 @@
+---
+hostname: rc0.otus.local
+domain: otus.local
+realm: OTUS.LOCAL
+ds-password: qwerty
+admin-password: qwerty
+forwarder: 8.8.8.8
+
