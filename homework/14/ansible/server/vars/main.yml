@@ -1,5 +1,5 @@
 ---
-hostname: rc0.otus.local
+hostname: rc.otus.local
 domain: otus.local
 realm: OTUS.LOCAL
 ds-password: qwerty
