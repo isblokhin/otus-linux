@@ -1,8 +1,16 @@
 ---
-hostname: rc0.otus.local
-domain: otus.local
-realm: OTUS.LOCAL
-ds-password: qwerty
-admin-password: qwerty
+hostname: rc
+domain: otus.local  # Имя домена
+realm: OTUS.LOCAL  # Имя рилма Kerberos
+my_ip: 192.168.11.151 # IP адрес этой машины (сервер FreeIPA)
+dspassword: qwerty123  # Пароль Directory Manager
+adminpassword: qwerty123 # Пароль администратора
 forwarder: 8.8.8.8
+ntp_timezone: Europe/Moscow # Часовой пояс
+
+packages:
+- ntp
+- tzdata
+- nano 
+- mc
 

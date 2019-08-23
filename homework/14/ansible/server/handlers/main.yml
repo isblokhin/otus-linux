@@ -1,6 +1,12 @@
 ---
 # handlers file for server
 
+- name: restart ntpd
+  systemd:
+    name: ntpd
+    state: restarted
+
+
 #- name: restart ipa-server
 #  systemd:
 #    name: ipa-server
