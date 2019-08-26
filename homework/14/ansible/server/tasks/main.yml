@@ -41,16 +41,5 @@
 
 
 - name: install parametrs
-  shell: "ipa-server-install -U --ds-password={{ dspassword }} --admin-password={{ adminpassword }} --domain={{ domain }} --realm={{ realm }} --hostname={{ hostname }}.{{ domain }} --setup-dns --mkhomedir --forwarder={{ forwarder }}  --auto-reverse --no-dnssec-validation"
-#    ipa-server-install
-#    --hostname {{ hostname }}
-#    --domain {{ domain }}
-#    --realm {{ realm }}
-#    --ds-password "{{ ds-password }}"
-#    --admin-password "{{ admin-password }}"
-#    --forwarder "{{ forwarder }}"
-#    --mkhomedir
-#    --setup-dns
-#    --auto-reverse
-#    --unattended
+  shell: "ipa-server-install -U --ds-password={{ dspassword }} --admin-password={{ adminpassword }} --domain={{ domain }} --realm={{ realm }} --hostname={{ hostname }}.{{ domain }} --setup-dns --forwarder {{ forwarder }} --auto-reverse --unattended" 
   tags: install parametrs
